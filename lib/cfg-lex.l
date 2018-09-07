@@ -188,6 +188,8 @@ word	[^ \#'"\(\)\{\}\[\]\\;\r\n\t,|\.@:]
 ^@                         {
                              return LL_PRAGMA;
                            }
+
+<*>\\\r?\n                 ;
 <*>\r?\n                   {
                              *yylloc = yyextra->include_stack[yyextra->include_depth].lloc;
                              _cfg_lex_new_line(yyextra);
